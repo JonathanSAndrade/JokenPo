@@ -5,11 +5,30 @@
 }
 
 body {
-    
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    font-family: 'Rajdhani', 'Arial Narrow', sans-serif;
+    background-color: #0a0a12;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
 }
+
+/* Cyberpunk Glow Effect */
+@keyframes cyberGlow {
+    0% { text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff, 0 0 20px #00f7ff; }
+    50% { text-shadow: 0 0 10px #ff00e6, 0 0 20px #ff00e6, 0 0 30px #ff00e6; }
+    100% { text-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff, 0 0 20px #00f7ff; }
+}
+
+/* Electric Pulse Effect */
+@keyframes electricPulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.3; }
+}
+
 .hero-video {
     position: fixed;
     top: 0;
@@ -18,6 +37,154 @@ body {
     height: 100vh;
     object-fit: cover;
     z-index: -2;
-    filter: brightness(0.5) blur(2px);
+    filter: brightness(0.3) contrast(1.2) hue-rotate(200deg);
     pointer-events: none;
+}
+
+/* Simulated scanlines for CRT effect */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(0, 247, 255, 0.01) 0%, 
+        transparent 2px, 
+        rgba(255, 0, 230, 0.01) 3px, 
+        transparent 3px);
+    background-size: 100% 4px;
+    pointer-events: none;
+    animation: electricPulse 2s infinite;
+    z-index: -1;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    background-color: rgba(10, 10, 20, 0.1);
+    padding: 30px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #00f7ff;
+    box-shadow: 0 0 20px rgba(0, 247, 255, 0.1),
+                0 0 40px rgba(255, 0, 230, 0.1);
+    backdrop-filter: blur(4px);
+    max-width: 800px;
+    width: 90%;
+}
+
+h1 {
+    color: #ff00e6;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: cyberGlow 3s infinite;
+    font-weight: 700;
+}
+
+.buttons {
+    display: flex;
+    gap: 30px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+button {
+    border: none;
+    padding: 15px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+    background: linear-gradient(145deg, #1a1a2e, #16213e);
+    color: #00f7ff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    min-width: 100px;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(0, 247, 255, 0) 45%,
+        rgba(0, 247, 255, 0.3) 50%,
+        rgba(0, 247, 255, 0) 55%
+    );
+    transform: rotate(30deg);
+    transition: all 0.5s;
+}
+
+button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 247, 255, 0.4),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    color: #ff00e6;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+#pedra {
+    border: 1px solid #00f7ff;
+}
+
+#papel {
+    border: 1px solid #ff00e6;
+}
+
+#tesoura {
+    border: 1px solid #00ff9d;
+}
+
+p {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color: #a0a0a0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.your-score span {
+    color: #00f7ff;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 247, 255, 0.5);
+}
+
+.machine-score span {
+    color: #ff00e6;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 0, 230, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .buttons {
+        gap: 20px;
+    }
+    
+    button {
+        font-size: 2rem;
+        padding: 12px 20px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
 }

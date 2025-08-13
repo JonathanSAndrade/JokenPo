@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game JokenPô</title>    
+    <title>Game JokenPô</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,14 +12,17 @@
     <video src="assets/Cassandra4k.mp4" autoplay muted loop class="hero-video"></video>
     <div class="container">
         <h1>JokenPô</h1>
-        <h2>Escolha sua jogada:</h2>
+        <h2>Escolha sua jogada</h2>
+        <div class="buttons">
+            <button id="pedra">&#x1F44A</button>
+            <button id="papel">&#x1F590</button>
+            <button id="tesoura">&#x270C</button>
+        </div>
+        <p class="your-score">Sua Pontuação: <span>0</span></p>
+        <p class="machine-score">Pontuação da Cassandra: <span>0</span></p>
 
-        <button id="pedra">Pedra</button>
-        <button id="papel">Papel</button>
-        <button id="tesoura">Tesoura</button>
+    </div>
 
-        <p>Sua Pontuação: <span>0</span></p>
-        <p>Pontuação da Cassandra: <span>0</span></p>
 
 </body>
 
