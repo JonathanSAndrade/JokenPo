@@ -161,6 +161,13 @@ p {
     letter-spacing: 1px;
 }
 
+.result {
+    font-size: 2rem;
+    margin-top: 20px;
+    color: #e70f0f;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
 .your-score span {
     color: #00f7ff;
     font-weight: bold;
